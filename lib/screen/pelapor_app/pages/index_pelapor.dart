@@ -1,11 +1,13 @@
 // import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 
+import 'package:bpbd/screen/pelapor_app/menu_view/riayawat_pelapor.dart';
 import 'package:bpbd/screen/pelapor_app/pages/Page_Profil/profile.dart';
 import 'package:bpbd/screen/pelapor_app/pages/page_home/home.dart';
 import 'package:bpbd/screen/pelapor_app/pages/page_tetang/tentang.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 
 class IndexPelaporView extends StatefulWidget {
@@ -24,8 +26,10 @@ class _IndexPelaporViewState extends State<IndexPelaporView> {
     if(_selectedIndex==0){
       return Home();
     }else if(_selectedIndex==1){
-      return Profile();
+      return VRiyawatPelapor();
     }else if(_selectedIndex==2){
+      return Profile();
+    }else if(_selectedIndex==3){
       return Tentang();
     }
   }
@@ -65,6 +69,17 @@ class _IndexPelaporViewState extends State<IndexPelaporView> {
                 color: Colors.deepOrange,
               ),
               title: Text("Home")),
+          BubbleBottomBarItem(
+              backgroundColor: Colors.deepOrange,
+              icon: Icon(
+                MaterialCommunityIcons.history,
+                color: Colors.black,
+              ),
+              activeIcon: Icon(
+                MaterialCommunityIcons.history,
+                color: Colors.deepOrange,
+              ),
+              title: Text("Riwayat")),
           BubbleBottomBarItem(
               backgroundColor: Colors.deepOrange,
               icon: Icon(

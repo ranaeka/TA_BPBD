@@ -29,6 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String nama ='';
   String alamat ='';
   String noHp ='';
+  bool visibelNik=false;
 
   bool _isHidePassword = true;
 
@@ -37,6 +38,10 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _nama = TextEditingController();
   TextEditingController _alamat = TextEditingController();
   TextEditingController _noHp = TextEditingController();
+  TextEditingController _nik = TextEditingController();
+
+  List<String> _level = ['Petugas', 'Pelapor']; // Option 2
+  String _selectedLevel; // Option 2
 
     Future<bool>register()async{
     Dio dio= new Dio();
@@ -48,7 +53,9 @@ class _RegisterPageState extends State<RegisterPage> {
       "password": "${_password.text}",
       "nama": "${_nama.text}",
       "alamat": "${_alamat.text}",
-      "no_hp": "${_noHp.text}"
+      "no_hp": "${_noHp.text}",
+      "level"   :"$_selectedLevel",
+      "nik" : "${_nik.text}"
     });
     Response response;
     response = await dio.post(ApiServer.register,data: formdata);
@@ -146,6 +153,50 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           SizedBox(
             height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:20.0),
+            child: DropdownButton(
+            isExpanded: true,
+              hint: Text('Pilih Level'), // Not necessary for Option 1
+              value: _selectedLevel,
+              onChanged: (newValue) {
+                setState(() {
+                  _selectedLevel = newValue;
+                  if(_selectedLevel=="Petugas"){
+                    visibelNik=true;
+                  }else{
+                    visibelNik=false;
+                  }
+                });
+              },
+              items: _level.map((level) {
+                return DropdownMenuItem(
+                  child: new Text(level),
+                  value: level,
+                );
+              }).toList(),
+            ),
+          ),
+          Visibility(
+            visible: visibelNik,
+            child: TextField(
+              controller: _nik,
+              decoration: InputDecoration(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.grey,
+                ),
+                labelText: "NIP/NIK",
+                labelStyle: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0,
+                  ),
+                ),
+              ),
+            ),
           ),
           TextField(
             controller: _nama,

@@ -1,8 +1,9 @@
 // import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 
-import 'package:bpbd/screen/petugas_app/Page_view/page_tentang/tentang.dart';
 import 'package:bpbd/screen/petugas_app/Page_view/page_home_petugas/home_petugas.dart';
+import 'package:bpbd/screen/petugas_app/Page_view/page_tentang/tentang.dart';
+import 'package:bpbd/screen/petugas_app/Page_view/page_home_petugas/home_petugas_old.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 

@@ -59,7 +59,9 @@ class _LoginPageState extends State<LoginPage> with Validation {
         preferences.setString('foto', response.data['data']['foto'].toString());
         preferences.setString(
             'level', response.data['data']['level'].toString());
-        if (response.data['data']['level'] == 'petugas') {
+        preferences.setString(
+            'nik', response.data['data']['nik'].toString());
+        if (response.data['data']['level'].toString().toLowerCase() == 'petugas') {
           Navigator.of(context).pushReplacementNamed('/IndexPetugasView');
         } else {
           Navigator.of(context).pushReplacementNamed('/IndexPelaporView');
@@ -82,6 +84,7 @@ class _LoginPageState extends State<LoginPage> with Validation {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: ListView(
+        padding : const EdgeInsets.symmetric(horizontal: 10),
         children: <Widget>[
           Stack(children: <Widget>[
             Column(
@@ -264,11 +267,14 @@ class _LoginPageState extends State<LoginPage> with Validation {
                       if (formKey.currentState.validate()) {
                         // formKey.currentState.save();
                         login();
+
                       }
+                      // Navigator.of(context).pushReplacementNamed('/IndexPelaporView');
                     },
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(30)),
                     color: Colors.orange,
+                    splashColor: Colors.white,
                     child: Container(
                       alignment: Alignment.center,
                       padding: EdgeInsets.symmetric(vertical: 12),
