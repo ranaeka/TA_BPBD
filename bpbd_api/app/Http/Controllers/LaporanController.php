@@ -21,17 +21,19 @@ class LaporanController extends Controller
        $simpan= Laporan::insertGetId([
         //    "nama_pelapor"=>$request->input("nama_pelapor"),
            "id_pelapor"=>$request->input("id_pelapor"),
-           "no_hp"=>$request->input("no_hp"),
+
+            "id_bencana" => $request->input("id_bencana"),
+            "id_jenis_bencana" => $request->input("id_jenis_bencana"),
+            "no_hp" => $request->input("no_hp"),
            "kecamatan"=>$request->input("kecamatan"),
            "desa"=>$request->input("desa"),
-           "jenis_bencana"=>$request->input("jenis_bencana"),
            "garis_bujur"=>$request->input("garis_bujur"),
            "garis_lintang"=>$request->input("garis_lintang"),
            "foto_laporan"=>$namefile,
            "keterangan"=>$request->input("keterangan"),
-           "status_laporan"=>"Diterima",
-           "created_at"=>Carbon::now(),
-           "updated_at"=>Carbon::now(),
+           "status_laporan"=>"DiProses",
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now(),
        ]);
       if($simpan){
           return response()->json([
@@ -44,8 +46,8 @@ class LaporanController extends Controller
           'status' => false,
           'code' => 600,
           'message' => 'data gagal disimpan'
-      ]);   
-        } 
+      ]);
+        }
     }
 
     public function lihatLaporan($id)
@@ -72,5 +74,16 @@ class LaporanController extends Controller
                 'message' => 'Post Tidak Ditemukan!',
             ], 404);
         }
+    }
+
+
+    public function deleteLaporan(Request $request,$id)
+    {
+        $delete=Laporan::where('id',$id)->delete();
+        return response()->json([
+            "status" => true,
+            "code" => 200,
+            "message" => "Data berhasil dihapus"
+        ]);
     }
 }

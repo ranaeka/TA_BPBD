@@ -19,9 +19,9 @@ class Laporan extends Model implements AuthenticatableContract, AuthorizableCont
      *
      * @var array
      */
-    protected $fillable = [
-        'nama_pelapor','no_hp', 'kecamatan', 'desa', 'jenis_bencana', 'garis_bujur', 'garis_lintang', 'foto', 'keterangan',
-    ];
+    // protected $fillable = [
+    //     'nama_pelapor','no_hp', 'kecamatan', 'desa', 'jenis_bencana', 'garis_bujur', 'garis_lintang', 'foto', 'keterangan',
+    // ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -29,4 +29,24 @@ class Laporan extends Model implements AuthenticatableContract, AuthorizableCont
      * @var array
      */
 
+
+    public function detailJenisBencana()
+    {
+        return $this->hasOne(JenisBencana::class, 'id_jenis_bencana', 'id_jenis_bencana');
+    }
+
+    public function detailBencana()
+    {
+        return $this->hasOne(Bencana::class, 'id_bencana', 'id_bencana');
+    }
+
+    public function detailPelapor()
+    {
+        return $this->hasOne(Users::class, 'id', 'id_pelapor');
+    }
+
+    public function detailPetugas()
+    {
+        return $this->hasOne(Users::class, 'id', 'id_petugas');
+    }
 }
