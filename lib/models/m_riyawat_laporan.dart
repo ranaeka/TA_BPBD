@@ -4,8 +4,10 @@
 
 import 'dart:convert';
 
+// ignore: non_constant_identifier_names
 ModelRiwayatLaporan ModelRiwayatLaporanFromJson(String str) => ModelRiwayatLaporan.fromJson(json.decode(str));
 
+// ignore: non_constant_identifier_names
 String ModelRiwayatLaporanToJson(ModelRiwayatLaporan data) => json.encode(data.toJson());
 
 class ModelRiwayatLaporan {

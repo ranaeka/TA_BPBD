@@ -20,7 +20,7 @@ class _SplashScreen extends State<SplashScreen> {
    SharedPreferences preferences = await SharedPreferences.getInstance();
    if(preferences.get('id')!= null)
    {
-    if(preferences.get('level')=='pelapor'){
+    if(preferences.get('level').toString().toLowerCase()=='pelapor'){
         Navigator.of(context).pushReplacementNamed('/IndexPelaporView');
     }else{
         Navigator.of(context).pushReplacementNamed('/IndexPetugasView');

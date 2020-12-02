@@ -21,6 +21,7 @@ class _VAllBeritaState extends State<VAllBerita> {
   @override
   void initState() {
     @override
+    // ignore: unused_element
     void initState() {
       Provider.of<ProviderBerita>(context,listen: false).getBerita();
       initializeDateFormatting("id-ID");

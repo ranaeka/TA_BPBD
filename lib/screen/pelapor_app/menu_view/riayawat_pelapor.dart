@@ -1,4 +1,5 @@
 import 'package:bpbd/provider/p_berita.dart';
+// ignore: unused_import
 import 'package:bpbd/screen/detail_laporan.dart';
 import 'package:bpbd/screen/detail_riwayat_laporan.dart';
 import 'package:cached_network_image/cached_network_image.dart';

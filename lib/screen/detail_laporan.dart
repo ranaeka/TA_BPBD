@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:http/http.dart';
+// import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -37,13 +37,14 @@ class _VDetailLaporanState extends State<VDetailLaporan> {
   var level;
   var idPetugas;
 
-  List<String> _level = ['diterima', 'diproses','ditolak']; // Option 2
+  List<String> _level = ['diterima', 'diproses','ditolak','selesai']; // Option 2
   String _selectedLevel; // Option 2
 
   TextEditingController controller=TextEditingController();
 
 //  static const LatLng _center = const LatLng(-6.4082937, 108.2797067);
   final Set<Marker> _markers = {};
+  // ignore: unused_field
   LatLng _lastMapPosition;
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;

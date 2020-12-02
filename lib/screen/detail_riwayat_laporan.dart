@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bpbd/api_service/api.dart';
+// ignore: unused_import
 import 'package:bpbd/models/m_laporan.dart';
 import 'package:bpbd/models/m_riyawat_laporan.dart';
 import 'package:bpbd/provider/p_berita.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+// ignore: unused_import
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
@@ -38,6 +40,7 @@ class _VDetailRiwayatLaporanState extends State<VDetailRiwayatLaporan> {
 
 //  static const LatLng _center = const LatLng(-6.4082937, 108.2797067);
   final Set<Marker> _markers = {};
+  // ignore: unused_field
   LatLng _lastMapPosition;
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;

@@ -1,6 +1,7 @@
 import 'package:bpbd/models/m_berita.dart';
 import 'package:bpbd/provider/p_berita.dart';
 import 'package:bpbd/screen/detail_laporan.dart';
+// ignore: unused_import
 import 'package:bpbd/screen/widgets/card_bencana.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class _VAllLaporanState extends State<VAllLaporan> {
   @override
   void initState() {
     @override
+    // ignore: unused_element
     void initState() {
       Provider.of<ProviderBerita>(context,listen: false).getLaporan();
       initializeDateFormatting("id-ID");
@@ -159,7 +161,7 @@ class _VAllLaporanState extends State<VAllLaporan> {
                                      SizedBox(width: 5,),
                                      Icon(Feather.user,color: Colors.white,size: 10,),
                                      SizedBox(width: 5,),
-                                     Text("${data.modelLaporan.data[i].detailPelapor.nama}"
+                                     Text(data.modelLaporan.data[i].detailPelapor!=null ?"${data.modelLaporan.data[i].detailPelapor.nama}" : "-"
                                        ,
                                        style: GoogleFonts.poppins(
                                            color: Colors.white,

@@ -235,22 +235,22 @@ class _LoginPageState extends State<LoginPage> with Validation {
                               //   password = value;
                               // }
                             ),
-                            Container(
-                                alignment: Alignment(1.0, 0.0),
-                                padding: EdgeInsets.only(top: 0.0, left: 10.0),
-                                child: FlatButton(
-                                  onPressed: () {
-                                    Navigator.of(context)
-                                        .pushNamed('/ForgetPasswordPage');
-                                  },
-                                  child: Text(
-                                    'Lupa Kata Sandi ?',
-                                    style: GoogleFonts.lato(
-                                      color: Colors.orange,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ))
+                            // Container(
+                            //     alignment: Alignment(1.0, 0.0),
+                            //     padding: EdgeInsets.only(top: 0.0, left: 10.0),
+                            //     child: FlatButton(
+                            //       onPressed: () {
+                            //         Navigator.of(context)
+                            //             .pushNamed('/ForgetPasswordPage');
+                            //       },
+                            //       child: Text(
+                            //         'Lupa Kata Sandi ?',
+                            //         style: GoogleFonts.lato(
+                            //           color: Colors.orange,
+                            //           fontWeight: FontWeight.bold,
+                            //         ),
+                            //       ),
+                            //     ))
                           ]),
                         ),
                       ],

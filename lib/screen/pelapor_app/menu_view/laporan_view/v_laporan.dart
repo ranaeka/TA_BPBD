@@ -69,6 +69,7 @@ class _LaporanViewState extends State<LaporanView> {
 
 //  static const LatLng _center = const LatLng(-6.4082937, 108.2797067);
   final Set<Marker> _markers = {};
+  // ignore: unused_field
   LatLng _lastMapPosition;
 
   String nama = '';
@@ -129,10 +130,12 @@ class _LaporanViewState extends State<LaporanView> {
     if(this.mounted){
       final coordinates = new Coordinates(lat, long);
       try {
+        // ignore: unused_local_variable
         var addresses = await Geocoder.local
             .findAddressesFromCoordinates(coordinates)
             .then((address) {
           setState(() {
+            // ignore: unused_local_variable
             var first = address.first.locality;
             print("Sub area "+address.first.subAdminArea);
             _desa.text=address.first.subLocality;
@@ -142,6 +145,7 @@ class _LaporanViewState extends State<LaporanView> {
 
           });
         });
+      // ignore: unused_catch_clause
       } on PlatformException catch (e) {}
     }
   }
@@ -400,6 +404,7 @@ class _LaporanViewState extends State<LaporanView> {
                           onChanged: (value) {
                             setState(() {
                               selectedJenisBencana = value;
+                              // ignore: unused_local_variable
                               var id;
                               data.jenisBencana.data.forEach((element) {
                                 if(element.jenisBencana.toLowerCase()==value.toString().toLowerCase()){

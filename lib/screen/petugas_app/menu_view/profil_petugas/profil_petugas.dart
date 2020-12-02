@@ -145,8 +145,8 @@ class _ProfilPetugasViewState extends State<ProfilPetugasView> {
                   children: <Widget>[
                     ClipOval(
                       child: SizedBox(
-                        width: ScreenConfig.screenWidth / 3,
-                        height: ScreenConfig.screenHeight / 5.5,
+                        width: 140,
+                        height: 140,
                         child: CachedNetworkImage(
                           progressIndicatorBuilder: (context, url, progress) =>
                               CircularProgressIndicator(
@@ -379,6 +379,7 @@ class _ProfilPetugasViewState extends State<ProfilPetugasView> {
               ],
             ),
             Container(
+              height: 65,
               // margin: EdgeInsets.only(bottom: 20),
               // padding: EdgeInsets.only(top: 650, left: 100, right: 100),
               padding: EdgeInsets.only(

@@ -106,7 +106,7 @@ class DataLaporan {
     tindakLanjut: json["tindak_lanjut"],
     detailJenisBencana: DetailJenisBencana.fromJson(json["detail_jenis_bencana"]),
     detailBencana: DetailBencana.fromJson(json["detail_bencana"]),
-    detailPelapor: DetailPe.fromJson(json["detail_pelapor"]),
+    detailPelapor: json["detail_pelapor"]==null ? null : DetailPe.fromJson(json["detail_pelapor"]),
     detailPetugas: json["detail_petugas"] == null ? null : DetailPe.fromJson(json["detail_petugas"]),
   );
 
