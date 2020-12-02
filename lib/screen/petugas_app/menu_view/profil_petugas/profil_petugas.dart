@@ -1,4 +1,5 @@
 import 'package:bpbd/api_service/api.dart';
+import 'package:bpbd/screen/login_page/loginPage.dart';
 import 'package:bpbd/screen/widgets/widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _ProfilPetugasViewState extends State<ProfilPetugasView> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.remove('id');
     Navigator.pop(context);
-    Navigator.of(context).pushReplacementNamed('/LoginPage');
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>LoginPage()), (route) => false);
   }
 
   _callAlert() {

@@ -1,5 +1,6 @@
 // import 'package:bpbd/login_page/loginPage.dart';
 import 'package:bpbd/api_service/api.dart';
+import 'package:bpbd/screen/login_page/loginPage.dart';
 import 'package:bpbd/screen/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,7 +41,7 @@ class _ProfileState extends State<Profile> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.remove('id');
     Navigator.pop(context);
-    Navigator.of(context).pushReplacementNamed('/LoginPage');
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>LoginPage()), (route) => false);
   }
 
   _callAlert() {
