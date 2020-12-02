@@ -22,6 +22,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> with Validation {
   final formKey = GlobalKey<FormState>();
+  final keyScaffold = GlobalKey<ScaffoldState>();
 
   String email = '';
   String password = '';
@@ -66,6 +67,12 @@ class _LoginPageState extends State<LoginPage> with Validation {
         } else {
           Navigator.of(context).pushReplacementNamed('/IndexPelaporView');
         }
+      }else{
+        keyScaffold.currentState.showSnackBar(SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text("Password atau Username salah",style: TextStyle(color: Colors.white),),
+          backgroundColor: Colors.red,
+        ));
       }
     }
     return true;
@@ -82,6 +89,7 @@ class _LoginPageState extends State<LoginPage> with Validation {
   Widget build(BuildContext context) {
     ScreenConfig().init(context);
     return Scaffold(
+      key: keyScaffold,
       backgroundColor: Colors.grey[100],
       body: ListView(
         padding : const EdgeInsets.symmetric(horizontal: 10),
